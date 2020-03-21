@@ -33,21 +33,27 @@ class MainActivity : AppCompatActivity() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         val student = dataSnapshot.children.iterator()
+                        var i=0
                         if(student.hasNext()){
                             while (student.hasNext()){
                                 val studentItem = student.next().getValue() as HashMap<String, Any>
-                                if (studentItem.get("id")==id&&studentItem.get("pass")==password){
+                                if (studentItem.get("id")==id && studentItem.get("pass") == password){
+                                    i=0
                                     val intent = Intent(this@MainActivity, Main3Activity::class.java)
                                     intent.putExtra("id",studentItem.get("id") as String)
                                     intent.putExtra("sex",studentItem.get("sex") as String)
                                     intent.putExtra("name",studentItem.get("name") as String)
                                     user.text=null
                                     pass.text=null
+                                    startActivity(intent)
+                                    break
                                 }else{
-                                    Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
+                                    i=1
                                 }
                             }
-                            startActivity(intent)
+                        }
+                        if(i!=0){
+                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
                         }
 //                        else{
 //                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
