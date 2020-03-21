@@ -31,19 +31,21 @@ class MainActivity : AppCompatActivity() {
                 .addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         val student = dataSnapshot.children.iterator()
-                        while (student.hasNext()){
-                            val studentItem = student.next().getValue() as HashMap<String, Any>
-                            if (studentItem.get("id")==id&&studentItem.get("pass")==password){
-                                val intent = Intent(this@MainActivity, Main3Activity::class.java)
-                                intent.putExtra("id",studentItem.get("id") as String)
-                                intent.putExtra("sex",studentItem.get("sex") as String)
-                                intent.putExtra("name",studentItem.get("name") as String)
-                                startActivity(intent)
-                                user.text=null
-                                pass.text=null
-                            }else{
-                                Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
+                        if(student.hasNext()){
+                            while (student.hasNext()){
+                                val studentItem = student.next().getValue() as HashMap<String, Any>
+                                if (studentItem.get("id")==id&&studentItem.get("pass")==password){
+                                    val intent = Intent(this@MainActivity, Main3Activity::class.java)
+                                    intent.putExtra("id",studentItem.get("id") as String)
+                                    intent.putExtra("sex",studentItem.get("sex") as String)
+                                    intent.putExtra("name",studentItem.get("name") as String)
+                                    user.text=null
+                                    pass.text=null
+                                }else{
+                                    Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
+                                }
                             }
+                            startActivity(intent)
                         }
 //                        else{
 //                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()

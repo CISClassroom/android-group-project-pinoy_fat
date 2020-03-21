@@ -1,12 +1,13 @@
 package th.ac.kku.cis.mobileapp.myapplication2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 
 class Main2Activity : AppCompatActivity() {
@@ -37,18 +38,40 @@ class Main2Activity : AppCompatActivity() {
                 Toast.makeText(this,"Please enter your name.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            if (password1==password2){
-                val student = student.create()
-                val newItem = mDatabase.child("student").push()
-                student.id=id
-                student.name=name
-                student.pass=password1
-                student.objectId = newItem.key
-                student.sex = spinner.selectedItem.toString()
-                newItem.setValue(student)
-                Toast.makeText(this,"Register Success!.", Toast.LENGTH_SHORT).show()
-                finish()
-            }
+            mDatabase.child("student")
+                .addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        val student = dataSnapshot.children.iterator()
+                        if(student.hasNext()){
+                            while (student.hasNext()){
+                                val studentItem = student.next().getValue() as HashMap<String, Any>
+                                if (studentItem.get("id") != id){
+                                    if (password1==password2){
+                                        val student = th.ac.kku.cis.mobileapp.myapplication2.student.create()
+                                        val newItem = mDatabase.child("student").push()
+                                        student.id=id
+                                        student.name=name
+                                        student.pass=password1
+                                        student.objectId = newItem.key
+                                        student.sex = spinner.selectedItem.toString()
+                                        newItem.setValue(student)
+                                        Toast.makeText(this@Main2Activity,"Register Success!.", Toast.LENGTH_SHORT).show()
+                                        finish()
+                                    }else{
+                                        Toast.makeText(this@Main2Activity,"Password does not match.", Toast.LENGTH_SHORT).show()
+                                    }
+                                }else{
+                                    Toast.makeText(this@Main2Activity,"Student id registed", Toast.LENGTH_SHORT).show()
+                                }
+                            }
+                        }
+//                        else{
+//                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
+//                        }
+                    }
+                    override fun onCancelled(databaseError: DatabaseError) {
+                    }
+                })
         }
         val spinner: Spinner = findViewById(R.id.spinner)
         val arrayList: ArrayList<String> = ArrayList()
