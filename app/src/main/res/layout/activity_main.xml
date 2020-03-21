@@ -1,45 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="20dp"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/kku"
+            android:scaleType="fitCenter"
+            />
 
         <EditText
             android:id="@+id/user"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_user"
             android:ems="10"
             android:inputType="textPersonName"
-            android:maxLength="11"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hint_color"
+            android:textSize="21sp"
+            android:drawableLeft="@drawable/ic_user"
             android:hint="Student ID" />
 
         <EditText
             android:id="@+id/pass"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/edit_text_background"
+            android:drawablePadding="10dp"
+            android:drawableStart="@drawable/ic_password"
             android:ems="10"
             android:hint="Password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/hint_color"
+            android:textSize="21sp"
+            android:drawableLeft="@drawable/ic_password"  />
+
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="login" />
-
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/btnlogin"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:text="Login" />
         <Button
             android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="register" />
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/button_background"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="21sp"
+            android:text="Register" />
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
