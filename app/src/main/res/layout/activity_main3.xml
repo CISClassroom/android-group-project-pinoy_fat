@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_m3"
+    android:background="@drawable/bgblack"
     tools:context=".Main3Activity">
 
     <LinearLayout
@@ -20,12 +20,16 @@
             android:layout_marginBottom="20dp"
             android:scaleType="fitCenter"/>
 
-        <ImageView
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1.5"
-            app:srcCompat="@drawable/m" />
+            android:src="@drawable/m"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView"
@@ -33,6 +37,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="TextView"
+            android:textColor="@color/white"
+            android:padding="10dp"
             android:textSize="24sp" />
 
         <TextView
@@ -40,6 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/white"
+            android:padding="10dp"
             android:text="TextView"
             android:textSize="24sp" />
 
@@ -49,6 +57,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="กิจกรรมที่เข้าร่วม"
+            android:background="@drawable/bgblack"
+            android:padding="10dp"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -61,21 +71,22 @@
                 android:id="@+id/textView5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4" />
+                android:layout_weight="4"
+                android:background="@drawable/bgblack"/>
 
             <ListView
                 android:id="@+id/list_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
-
-            </ListView>
+                android:layout_weight="1"
+                android:background="@drawable/edittext_culor"/>
 
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="4" />
+                android:layout_weight="4"
+                android:background="@drawable/bgblack"/>
 
         </LinearLayout>
 

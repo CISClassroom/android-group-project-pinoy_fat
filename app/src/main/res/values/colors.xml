@@ -10,5 +10,5 @@
     <color name="btnr">#D88A04</color>
     <color name="colorPrimary1">#3C3F41</color>
     <color name="bg1">#0192A5</color>
-<!--    0192A5-->
+    <color name="bg2">#4D4D4D</color>
 </resources>
