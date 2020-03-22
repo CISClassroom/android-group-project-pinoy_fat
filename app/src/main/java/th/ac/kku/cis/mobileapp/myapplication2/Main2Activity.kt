@@ -27,15 +27,15 @@ class Main2Activity : AppCompatActivity() {
             val password2 = editText5.text.toString().trim { it <= ' ' }
 
             if (id.isEmpty()||id.length<11) {
-                Toast.makeText(this,"Please enter your student id.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"กรุณาใส่เลขรหัสนักศึกษา", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (password1.isEmpty()||password2.isEmpty()) {
-                Toast.makeText(this,"Please enter your pass.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"กรุณาใส่รหัสผ่าน", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (name.isEmpty()){
-                Toast.makeText(this,"Please enter your name.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"กรุณาใส่ชื่อนักศึกษา", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             mDatabase.child("student").addListenerForSingleValueEvent(object : ValueEventListener {
@@ -59,13 +59,13 @@ class Main2Activity : AppCompatActivity() {
                                 student.objectId = newItem.key
                                 student.sex = spinner.selectedItem.toString()
                                 newItem.setValue(student)
-                                Toast.makeText(this@Main2Activity,"Register Success!.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@Main2Activity,"ลงทะเบียนเสร็จสิ้น", Toast.LENGTH_SHORT).show()
                                 finish()
                             }else{
-                                Toast.makeText(this@Main2Activity,"Password does not match.", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(this@Main2Activity,"กรุณาใส่รหัสให้ตรงกัน!", Toast.LENGTH_SHORT).show()
                             }
                         }else{
-                            Toast.makeText(this@Main2Activity,"Student id registed", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@Main2Activity,"รหัสนี้มีการสมัครแล้ว!", Toast.LENGTH_SHORT).show()
                         }
                     }
                 }

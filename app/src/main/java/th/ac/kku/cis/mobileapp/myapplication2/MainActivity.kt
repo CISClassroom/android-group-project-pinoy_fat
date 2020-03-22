@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
             val password = pass.text.toString().trim { it <= ' ' }
 
             if (id.isEmpty()||id.length<11) {
-                Toast.makeText(this,"Please enter your Student id.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"กรุณาใส่เลขรหัสนักศึกษา!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             if (password.isEmpty()) {
-                Toast.makeText(this,"Please enter your password.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"กรุณาใส่รหัสผ่าน!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             mDatabase.child("student")
@@ -53,7 +53,7 @@ class MainActivity : AppCompatActivity() {
                             }
                         }
                         if(i!=0){
-                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@MainActivity,"รหัสนักศึกษา หรือ รหัสผ่านไม่ถูกต้อง!", Toast.LENGTH_SHORT).show()
                         }
 //                        else{
 //                            Toast.makeText(this@MainActivity,"Wrong email or password.", Toast.LENGTH_SHORT).show()
