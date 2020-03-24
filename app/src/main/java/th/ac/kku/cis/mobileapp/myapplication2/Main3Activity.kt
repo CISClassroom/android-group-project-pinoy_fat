@@ -1,10 +1,12 @@
 package th.ac.kku.cis.mobileapp.myapplication2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.ListView
+import android.widget.Toast
 import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main3.*
 
@@ -39,6 +41,14 @@ class Main3Activity : AppCompatActivity() {
         adapter = event_adapter(this, event_list!!)
         listViewItems!!.setAdapter(adapter)
         mDatabase.orderByKey().addListenerForSingleValueEvent(itemListener)
+
+        list_view.setOnItemClickListener{parent, view, position, id ->
+            val selectedItem = parent.getItemAtPosition(position) as event
+            Toast.makeText(this,selectedItem.event_name, Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, Main4Activity::class.java)
+            intent.putExtra("event_name",selectedItem.event_name)
+            startActivity(intent)
+        }
     }
     var itemListener: ValueEventListener = object : ValueEventListener {
 

@@ -43,9 +43,9 @@ class MainActivity : AppCompatActivity() {
                                     intent.putExtra("id",studentItem.get("id") as String)
                                     intent.putExtra("sex",studentItem.get("sex") as String)
                                     intent.putExtra("name",studentItem.get("name") as String)
+                                    startActivity(intent)
                                     user.text=null
                                     pass.text=null
-                                    startActivity(intent)
                                     break
                                 }else{
                                     i=1
