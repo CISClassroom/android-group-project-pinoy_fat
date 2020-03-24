@@ -5,13 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@drawable/bgblack"
     tools:context=".Main4Activity">
+
+    <TextView
+        android:id="@+id/textView16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
         android:text="name"
         android:textSize="30sp" />
 
@@ -20,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:background="@drawable/bg_m3"
         android:text="รายละเอียดกิจกรรม"
         android:textSize="24sp" />
 
@@ -28,6 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5"
+        android:background="@drawable/background"
+        android:textColor="@color/colorPrimary1"
         android:text="detail"
         android:textSize="24sp" />
 
