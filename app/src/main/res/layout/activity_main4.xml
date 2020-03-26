@@ -29,13 +29,15 @@
         android:gravity="center"
         android:background="@drawable/bg_m3"
         android:text="รายละเอียดกิจกรรม"
-        android:textSize="24sp" />
+        android:textSize="25dp" />
 
     <TextView
         android:id="@+id/detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="5"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/background"
         android:textColor="@color/colorPrimary1"
         android:text="detail"
