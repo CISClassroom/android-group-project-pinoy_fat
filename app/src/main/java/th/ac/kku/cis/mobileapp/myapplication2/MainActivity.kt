@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference
 
         button2.setOnClickListener {
-            val id = user.text.toString().trim { it <= ' ' }
-            val password = pass.text.toString().trim { it <= ' ' }
+            val id = this.user.text.toString().trim { it <= ' ' }
+            val password = this.pass.text.toString().trim { it <= ' ' }
 
             if (id.isEmpty()||id.length<11) {
                 Toast.makeText(this,"กรุณาใส่เลขรหัสนักศึกษา!", Toast.LENGTH_SHORT).show()

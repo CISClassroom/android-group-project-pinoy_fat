@@ -44,6 +44,7 @@
             android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="10dp"
             android:ems="10"
+            android:maxLength="11"
             android:hint="รหัสนักศึกษา"
             android:inputType="textPersonName"
             android:padding="10dp"

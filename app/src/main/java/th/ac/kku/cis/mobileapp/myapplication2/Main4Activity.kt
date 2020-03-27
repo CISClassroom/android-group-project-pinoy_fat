@@ -25,10 +25,12 @@ class Main4Activity : AppCompatActivity() {
                 val currentItem = items.next()
                 val map = currentItem.getValue() as HashMap<String, Any>
                 if(map.get("event_name")==event_name){
-                    name.text = map.get("event_name") as String?
-                    detail.text = map.get("event_detail") as String?
-                    start.text = "เริ่มวันที่ : " + map.get("date_start") as String?
-                    end.text = "สิ้นสุดวันที่ : " + map.get("date_end") as String?
+                    name.text = map.get("event_name") as String
+                    detail.text = map.get("event_detail") as String
+                    side.text = "กิจกรรม"+map.get("event_side") as String
+                    unit.text = "จำนวน "+map.get("event_unit") as String+" หน่วยกิจ"
+                    start.text = map.get("date_start") as String
+                    end.text = map.get("date_end") as String
                 }
             }
         }
