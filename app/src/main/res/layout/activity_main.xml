@@ -45,6 +45,8 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:maxLength="11"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:hint="รหัสนักศึกษา"
             android:inputType="textPersonName"
             android:padding="10dp"
@@ -67,6 +69,8 @@
             android:drawablePadding="10dp"
             android:ems="10"
             android:hint="รหัสผ่าน"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:inputType="textPassword"
             android:background="@drawable/edit_text_background"
             android:padding="10dp"
@@ -88,14 +92,12 @@
             android:background="@drawable/btnlogin"
             android:text="เข้าสู่ระบบ"
             android:textAllCaps="false"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
             android:textColor="@color/white"
-            android:textSize="21sp" />
+            android:textSize="21sp"
+            android:layout_marginBottom="20dp" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
 
         <Button
             android:id="@+id/button"
@@ -103,12 +105,15 @@
             android:layout_height="wrap_content"
             android:background="@drawable/button_background"
             android:text="สมัครสมาชิก"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:textSize="21sp" />
 
         <TextView
             android:id="@+id/textView3"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
